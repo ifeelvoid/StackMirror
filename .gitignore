@@ -1,0 +1,17 @@
+.build/
+dist/
+.DS_Store
+*.xcuserstate
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcworkspace/xcuserdata/
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.mobileprovision
+*.keychain
+.claude/
+.codex/
