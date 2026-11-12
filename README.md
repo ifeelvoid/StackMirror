@@ -1,6 +1,8 @@
-# StackMirror
+<p align="center"><img src="Assets/StackMirror-Icon-1024.png" width="128" alt="StackMirror icon"></p>
 
-A local macOS app for scheduling Substack Notes, with a calendar of everything you have scheduled.
+<h1 align="center">StackMirror</h1>
+
+<p align="center">Schedule Substack Notes from your Mac, with a calendar of everything you have scheduled.</p>
 
 > StackMirror is a local tool, not an official Substack client. It uses Substack's undocumented Notes endpoints.
 
@@ -21,15 +23,39 @@ Scheduled Notes are held by Substack as native scheduled drafts. StackMirror doe
 - StackMirror never deletes or edits your existing Substack drafts or Notes.
 - No API keys, cookies, app state, or build bundles belong in Git.
 
-## Run
+## Install
 
-Requires macOS 14 or later and Xcode (full Xcode, not only Command Line Tools).
+1. Download `StackMirror-<version>.dmg` from [Releases](https://github.com/ifeelvoid/StackMirror/releases/latest).
+2. Open it and drag **StackMirror** onto **Applications**.
+3. The first time, right-click StackMirror in Applications and choose **Open**, then **Open** again.
+
+StackMirror is ad-hoc signed, not notarized by Apple, so macOS asks once before the first launch. If macOS says the app is damaged, run this once:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/StackMirror.app
+```
+
+Requires macOS 14 or later. The app runs natively on Apple Silicon and Intel.
+
+## Build from source
+
+Requires full Xcode (not only Command Line Tools).
 
 ```bash
 ./script/build_and_run.sh
 ```
 
-The generated app bundle is written to `dist/StackMirror.app`.
+The app bundle is written to `dist/StackMirror.app`. To package a release DMG:
+
+```bash
+./script/make_dmg.sh
+```
+
+To regenerate the app icon from the glyph in `Assets/StackMirror-AppIcon.png`:
+
+```bash
+./script/build_icon.sh
+```
 
 ## Setup
 
