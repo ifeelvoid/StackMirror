@@ -254,18 +254,7 @@ final class AppStore: ObservableObject {
 
     private func attachments(for text: String, cookie: String) async throws -> [Int] {
         guard configuration.includeLinkPreviews else { return [] }
-        var result: [Int] = []
-        for url in ContentTransformer.URLs(in: text).prefix(6) {
-            // A changed or unsupported preview response must not block the Note text.
-            // The publish/schedule request still validates the session afterwards.
-            if let attachmentID = try? await substackClient.createAttachment(
-                url: url,
-                sessionCookie: cookie
-            ) {
-                result.append(attachmentID)
-            }
-        }
-        return result
+        return await substackClient.linkPreviewAttachments(for: text, sessionCookie: cookie)
     }
 
     private func persist() {

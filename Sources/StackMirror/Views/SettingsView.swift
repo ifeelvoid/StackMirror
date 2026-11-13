@@ -98,6 +98,9 @@ struct SettingsView: View {
             }
             .formStyle(.grouped)
             .tabItem { Label("General", systemImage: "gearshape") }
+
+            MCPSettingsView()
+                .tabItem { Label("AI Assistants", systemImage: "sparkles") }
         }
         .frame(width: 560, height: 520)
         .onAppear { settingsStatus = "" }

@@ -142,6 +142,7 @@ struct AppConfiguration: Codable, Equatable, Sendable {
     var includeLinkPreviews = true
     var notifyOnFailure = true
     var launchAtLogin = false
+    var mcpEnabled = false
     var template = ContentTemplate()
 
     init() {}
@@ -152,6 +153,7 @@ struct AppConfiguration: Codable, Equatable, Sendable {
         includeLinkPreviews = try container.decodeIfPresent(Bool.self, forKey: .includeLinkPreviews) ?? true
         notifyOnFailure = try container.decodeIfPresent(Bool.self, forKey: .notifyOnFailure) ?? true
         launchAtLogin = try container.decodeIfPresent(Bool.self, forKey: .launchAtLogin) ?? false
+        mcpEnabled = try container.decodeIfPresent(Bool.self, forKey: .mcpEnabled) ?? false
         template = try container.decodeIfPresent(ContentTemplate.self, forKey: .template) ?? ContentTemplate()
     }
 }

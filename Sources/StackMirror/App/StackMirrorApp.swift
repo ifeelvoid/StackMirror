@@ -14,7 +14,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
-@main
+/// Started by `StackMirrorMain` unless the process was launched with `--mcp`.
 struct StackMirrorApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @StateObject private var store: AppStore

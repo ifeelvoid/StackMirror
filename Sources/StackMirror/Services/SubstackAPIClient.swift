@@ -318,6 +318,20 @@ private struct NoteText: Encodable {
     let text: String
 }
 
+extension SubstackAPIClient {
+    /// Link-preview attachments for up to six URLs in a Note. A failed preview never blocks the Note text;
+    /// the publish or schedule request still validates the session afterwards.
+    func linkPreviewAttachments(for text: String, sessionCookie: String) async -> [Int] {
+        var result: [Int] = []
+        for url in ContentTransformer.URLs(in: text).prefix(6) {
+            if let attachmentID = try? await createAttachment(url: url, sessionCookie: sessionCookie) {
+                result.append(attachmentID)
+            }
+        }
+        return result
+    }
+}
+
 private extension JSONEncoder {
     static var apiEncoder: JSONEncoder {
         let encoder = JSONEncoder()

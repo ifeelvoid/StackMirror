@@ -27,5 +27,6 @@ hdiutil detach "$MOUNT" -quiet
 hdiutil convert "$WORK/rw.dmg" -format UDZO -imagekey zlib-level=9 -o "$DMG" >/dev/null
 codesign --force --sign - "$DMG"
 
-shasum -a 256 "$DMG" | tee "$DMG.sha256"
+# Checksum by file name only, so the published file carries no local paths.
+(cd "$(dirname "$DMG")" && shasum -a 256 "$(basename "$DMG")") | tee "$DMG.sha256"
 echo "Wrote $DMG"
