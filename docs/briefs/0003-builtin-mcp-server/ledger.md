@@ -1,9 +1,9 @@
 # Ledger — Build an MCP server into StackMirror
 
-`blc/2 #0003 active a:done`
+`blc/2 #0003 done a:done`
 
 **Brief:** `docs/briefs/0003-builtin-mcp-server/brief.md`
-**Status:** active
+**Status:** done
 **Created:** 2026-11-12
 
 ## Phases
@@ -33,4 +33,10 @@
 
   Your call: turning the MCP switch on or off also saves any unsaved edits on the General tab.
 
-  Not pushed, and not released.
+  At that point it was not pushed or released.
+- 2026-11-13: Alexander authorized release ("Ship v1.1.0").
+  - Fixed `script/make_dmg.sh` so the `.sha256` file lists only the file name (private commit `9df2f45`). The v1.0.0 checksum file contains the full local build path, which names the external drive; that asset was not changed.
+  - Built `StackMirror-1.1.0.dmg` (universal, ad-hoc signed, not notarized). hdiutil verify passed, the mounted app reports 1.1.0, and `--mcp` answers from inside the DMG.
+  - The pre-push scan found no personal paths or credentials; the only matches were the cookie-header template in code.
+  - Pushed public commit `01822e3` (same tree as private `9df2f45`, parent `51b833e`) to `main` and published release v1.1.0 with the DMG and its SHA-256 file. The re-downloaded DMG passes `shasum -c`.
+  - Live MCP scheduling through a real client remains unverified.
