@@ -4,9 +4,7 @@
 
 <p align="center">Schedule Substack Notes from your Mac, with a calendar of everything you have scheduled.</p>
 
-<p align="center"><a href="Assets/StackMirror-Launch.mp4"><img src="Assets/StackMirror-Launch.jpg" width="720" alt="StackMirror launch video: Substack Notes on a calendar"></a></p>
-
-<p align="center"><a href="Assets/StackMirror-Launch.mp4">▶ Watch the 22-second tour</a></p>
+https://github.com/user-attachments/assets/a2c05c53-c5f3-4e14-8834-4d5908355e7b
 
 > StackMirror is a local tool, not an official Substack client. It uses Substack's undocumented Notes endpoints.
 
